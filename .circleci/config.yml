@@ -18,5 +18,5 @@
            name: Build
            command: dotnet build --framework net48 --configuration Release
        - store_artifacts:
-          path: ./jarvis/bin/Debug/jarvis.exe
+          path: ./jarvis/bin/Release/jarvis.exe
           destination: jarvis-net4.8-x64.exe
