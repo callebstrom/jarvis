@@ -9,5 +9,5 @@
     
      steps:
        - checkout
-       - run: dotnet restore .
+       - run: nuget install
        - run: dotnet build --framework net48 
