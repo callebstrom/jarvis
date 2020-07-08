@@ -8,9 +8,14 @@
      executor: win/default
      steps:
        - checkout
+       - run: cd jarvis
+       - run:
+           name: Install packages
+           command: nuget install
+       - run: cd ..
        - run:
            name: Restore packages
-           command: dotnet restore -r net48
+           command: nuget restore jarvis.sln
        - run:
            name: Build
            command: dotnet build --framework net48
