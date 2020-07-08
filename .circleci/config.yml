@@ -1,9 +1,13 @@
  version: 2.1
+ 
+ orbs:
+   win: circleci/windows@2.2.0
    
  jobs:
    build:
-     docker:
-       - image: mcr.microsoft.com/dotnet/framework/sdk:4.8
+     executor:
+       name: win/vs2019
+       shell: bash.exe
      steps:
        - checkout
        - run:
