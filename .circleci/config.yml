@@ -1,0 +1,22 @@
+ version: 2.1
+ 
+ orbs:
+   win: circleci/windows@2.2.0
+   
+ jobs:
+   build:
+     executor: win/default
+     steps:
+       - checkout
+       - run:
+           name: Install packages
+           command: nuget install
+       - run:
+           name: Restore packages
+           command: nuget restore jarvis.sln
+       - run:
+           name: Build
+           command: dotnet build --framework net48 --configuration Release
+       - store_artifacts:
+          path: ./jarvis/bin/Release/jarvis.exe
+          destination: jarvis-net4.8-x64.exe
