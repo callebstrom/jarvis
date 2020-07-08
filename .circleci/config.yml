@@ -5,7 +5,8 @@
    
  jobs:
    build:
-     executor: win/default
+     docker:
+       - image: mcr.microsoft.com/dotnet/framework/sdk:4.8
      steps:
        - checkout
        - run:
