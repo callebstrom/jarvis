@@ -5,15 +5,15 @@
 
  jobs:
    build:
-     executor: win/default     
-    
+     docker:
+       - image: mcr.microsoft.com/dotnet/framework/sdk:4.8
      steps:
        - checkout
-       - run: cd jarvis
-       - run: nuget install
-       - run: cd ..
-       - run: nuget restore
-       - run: dotnet build --framework net48
-       - store_artifacts:
-          path: ./bin/Debug/jarvis.exe
-          destination: jarvis-debug-x64.exe
+       - run:
+         - name: Restore packages
+           command:
+             dotnet restore
+       - run:
+         - name: Build
+           command:
+             dotnet build
