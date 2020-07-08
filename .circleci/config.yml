@@ -16,7 +16,7 @@
            command: nuget restore jarvis.sln
        - run:
            name: Build
-           command: dotnet build --framework net48
+           command: dotnet build --framework net48 --configuration Release
        - store_artifacts:
           path: ./jarvis/bin/Debug/jarvis.exe
-          destination: jarvis-debug-net4.8-x64.exe
+          destination: jarvis-net4.8-x64.exe
