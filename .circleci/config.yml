@@ -1,7 +1,4 @@
  version: 2.1
- 
- orbs:
-   win: circleci/windows@2.4.0
    
  jobs:
    build:
