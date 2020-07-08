@@ -9,4 +9,4 @@
     
      steps:
        - checkout
-       - run: dotnet --net48 build
+       - run: dotnet --framework net48 build
