@@ -8,14 +8,15 @@
      executor: win/default
      steps:
        - checkout
-       - run: cd jarvis
        - run:
            name: Install packages
            command: nuget install
-       - run: cd ..
        - run:
            name: Restore packages
            command: nuget restore jarvis.sln
        - run:
            name: Build
            command: dotnet build --framework net48
+       - store_artifacts:
+          path: ./jarvis/bin/Debug/jarvis.exe
+          destination: jarvis-debug-net4.8-x64.exe
