@@ -11,6 +11,8 @@
        - checkout
        - run: cd jarvis
        - run: nuget install
+       - run: cd ..
+       - run: nuget restore
        - run: dotnet build --framework net48
        - store_artifacts:
           path: ./bin/Debug/jarvis.exe
