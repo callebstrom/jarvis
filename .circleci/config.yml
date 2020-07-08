@@ -10,7 +10,7 @@
        - checkout
        - run:
            name: Restore packages
-           command: dotnet restore
+           command: dotnet restore -r net48
        - run:
            name: Build
-           command: dotnet build
+           command: dotnet build --framework net48
