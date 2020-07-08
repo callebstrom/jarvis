@@ -9,8 +9,9 @@
     
      steps:
        - checkout
-       - run: pushd jarvis && nuget install && popd
+       - run: cd jarvis
+       - run: nuget install
        - run: dotnet build --framework net48
        - store_artifacts:
-          path: ./jarvis/bin/Debug/jarvis.exe
+          path: ./bin/Debug/jarvis.exe
           destination: jarvis-debug-x64.exe
