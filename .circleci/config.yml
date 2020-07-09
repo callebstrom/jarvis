@@ -17,6 +17,9 @@
        - run:
            name: Build
            command: dotnet build --framework net48 --configuration Release
+       - run: 
+           name: Build 2
+           command: MsBuild jarvis.sln
        - store_artifacts:
           path: ./jarvis/bin/Release/jarvis.exe
           destination: jarvis-net4.8-x64.exe
