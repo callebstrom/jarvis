@@ -18,7 +18,13 @@
            name: Build
            command: MsBuild jarvis.sln /property:Configuration=Release
        - run:
+           name: Dist
+           command: New-Item -ItemType Directory -Force -Path dist
+       - run:
+           name: Copy binaries
+           command: Copy-Item -Path ./jarvis/bin/Release/*.dll -Destination dist/; Copy-Item -Path ./jarvis/bin/Release/*.exe -Destination dist/
+       - run:
            name: Archive artifact
-           command: Compress-Archive ./jarvis/bin/Release jarvis-net4.8-x64.zip
+           command: Compress-Archive dist jarvis-net4.8-x64.zip
        - store_artifacts:
            path: jarvis-net4.8-x64.zip
