@@ -8,6 +8,12 @@
      executor: win/default
      steps:
        - checkout
+       - run:
+           name: Install packages
+           command: nuget install
+       - run:
+           name: Restore packages
+           command: nuget restore jarvis.sln
        - run: 
            name: Build
            command: MsBuild jarvis.sln /property:Configuration=Release
