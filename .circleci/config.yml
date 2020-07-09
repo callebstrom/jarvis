@@ -21,4 +21,4 @@
            name: Archive artifact
            command: Compress-Archive ./jarvis/bin/Release jarvis-net4.8-x64.zip
        - store_artifacts:
-          path: jarvis-net4.8-x64.zip
+           path: jarvis-net4.8-x64.zip
